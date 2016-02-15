@@ -9,7 +9,7 @@ import java.util.Set;
 @Entity
 public class Cathedra {
     private Integer cathedraId;
-    private Integer name;
+    private String name;
     private Department department;
     private Set<Professor> professors;
 
@@ -24,11 +24,11 @@ public class Cathedra {
         this.cathedraId = cathedraId;
     }
 
-    public Integer getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(Integer name) {
+    public void setName(String name) {
         this.name = name;
     }
 
