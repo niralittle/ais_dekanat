@@ -42,12 +42,17 @@ public class GenericDAOHibernateImpl implements GenericDAO {
         return crit.list();
     }
 
-    public final <T> List<T> findByCriteria(final Class<T> type, final Criterion... criterion) {
+    public final <T> List<T> findByCriterions(final Class<T> type, final Criterion... criterion) {
         final Criteria crit = getSession().createCriteria(type);
         for (final Criterion c : criterion) {
             crit.add(c);
         }
         return crit.list();
+    }
+
+    @Override
+    public <T> Criteria createCriteria(final Class<T> type) {
+        return getSession().createCriteria(type);
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {

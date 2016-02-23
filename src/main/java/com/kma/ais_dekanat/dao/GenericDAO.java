@@ -1,5 +1,6 @@
 package com.kma.ais_dekanat.dao;
 
+import org.hibernate.Criteria;
 import org.hibernate.criterion.Criterion;
 
 import java.util.List;
@@ -17,5 +18,8 @@ public interface GenericDAO {
 
     <T> List<T> getAll(Class<T> type);
 
-    <T> List<T>  findByCriteria(Class<T> type, Criterion... criterion);
+    <T> List<T> findByCriterions(Class<T> type, Criterion... criterion);
+
+    <T> Criteria createCriteria(final Class<T> type);
+
 }
