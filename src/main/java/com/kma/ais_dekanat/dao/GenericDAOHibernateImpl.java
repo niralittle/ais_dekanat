@@ -13,7 +13,6 @@ import java.util.List;
 public class GenericDAOHibernateImpl implements GenericDAO {
     @Autowired
     protected SessionFactory sessionFactory;
-    private Session session;
 
     public <T> T save(final T o) {
         return (T) sessionFactory.getCurrentSession().save(o);
@@ -43,7 +42,7 @@ public class GenericDAOHibernateImpl implements GenericDAO {
     }
 
     public final <T> List<T> findByCriterions(final Class<T> type, final Criterion... criterion) {
-        final Criteria crit = getSession().createCriteria(type);
+        final Criteria crit = sessionFactory.getCurrentSession().createCriteria(type);
         for (final Criterion c : criterion) {
             crit.add(c);
         }
@@ -52,18 +51,11 @@ public class GenericDAOHibernateImpl implements GenericDAO {
 
     @Override
     public <T> Criteria createCriteria(final Class<T> type) {
-        return getSession().createCriteria(type);
+        return sessionFactory.getCurrentSession().createCriteria(type);
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
-    public final Session getSession() {
-        session = sessionFactory.getCurrentSession();
-        if (session == null) {
-            session = sessionFactory.openSession();
-        }
-        return session;
-    }
 }
