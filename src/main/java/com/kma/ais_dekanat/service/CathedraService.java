@@ -32,7 +32,7 @@ public class CathedraService {
     }
 
     @Transactional
-    public Cathedra getChathedraById(Long id) {
+    public Cathedra getChathedraById(Integer id) {
         return genericDAO.get(Cathedra.class, id);
     }
 
@@ -43,7 +43,9 @@ public class CathedraService {
 
     @Transactional
     public List<Cathedra> getAllCathedrasByDepartmentId(int id) {
-        Criteria crit = genericDAO.createCriteria(Cathedra.class).add(Restrictions.eq("department.departmentId", id));
+        Criteria crit = genericDAO.createCriteria(Cathedra.class)
+                .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
+                .add(Restrictions.eq("department.departmentId", id));
         List<Cathedra> cathedras = crit.list();
         System.out.println(cathedras.size());
         return cathedras;

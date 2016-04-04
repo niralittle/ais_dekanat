@@ -1,7 +1,6 @@
 package com.kma.ais_dekanat.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonView;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -19,7 +18,6 @@ public class Department {
     private Set<UniversityGroup> groups;
     private Set<Cathedra> cathedras;
 
-    @JsonView(Department.Views.Public.class)
     @Id
     @GeneratedValue
     @Column(name = "department_id")
@@ -31,7 +29,6 @@ public class Department {
         this.departmentId = id;
     }
 
-    @JsonView(Department.Views.Public.class)
     public String getName() {
         return name;
     }
@@ -40,7 +37,6 @@ public class Department {
         this.name = name;
     }
 
-    @JsonView(Department.Views.Public.class)
     @Column(name = "main_info", columnDefinition = "TEXT")
     public String getMainInfo() {
         return mainInfo;
@@ -50,7 +46,7 @@ public class Department {
         this.mainInfo = mainInfo;
     }
 
-    @JsonView(Department.Views.Internal.class)
+    @JsonIgnore
     @OneToMany(mappedBy = "department",fetch = FetchType.EAGER)
     public Set<UniversityGroup> getGroups() {
         return groups;
@@ -60,9 +56,8 @@ public class Department {
         this.groups = groups;
     }
 
-    @JsonView(Cathedra.Views.Internal.class)
-    @OneToMany(mappedBy = "department")
     @JsonIgnore
+    @OneToMany(mappedBy = "department")
     public Set<Cathedra> getCathedras() {
         return cathedras;
     }
@@ -71,11 +66,4 @@ public class Department {
         this.cathedras = cathedras;
     }
 
-    public static final class Views {
-        // show only public data
-        public interface Public {}
-
-        // show public and internal data
-        public interface Internal extends Public {}
-    }
 }

@@ -10,7 +10,7 @@ public interface GenericDAO {
 
     void delete(Object object);
 
-    <T> T get(Class<T> type, Long id);
+    <T> T get(Class<T> type, Integer id);
 
     <T> T merge(T o);
 

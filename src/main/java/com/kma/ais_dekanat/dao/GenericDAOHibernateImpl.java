@@ -23,7 +23,7 @@ public class GenericDAOHibernateImpl implements GenericDAO {
         sessionFactory.getCurrentSession().delete(object);
     }
 
-    public <T> T get(final Class<T> type, final Long id) {
+    public <T> T get(final Class<T> type, final Integer id) {
         return (T) sessionFactory.getCurrentSession().get(type, id);
     }
 

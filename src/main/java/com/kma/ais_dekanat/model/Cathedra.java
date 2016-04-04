@@ -1,6 +1,6 @@
 package com.kma.ais_dekanat.model;
 
-import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -15,7 +15,6 @@ public class Cathedra {
     private Department department;
     private Set<Professor> professors;
 
-    @JsonView(Cathedra.Views.Public.class)
     @Id
     @GeneratedValue
     @Column(name = "cathedra_id")
@@ -27,7 +26,6 @@ public class Cathedra {
         this.cathedraId = cathedraId;
     }
 
-    @JsonView(Cathedra.Views.Public.class)
     public String getName() {
         return name;
     }
@@ -36,7 +34,7 @@ public class Cathedra {
         this.name = name;
     }
 
-    @JsonView(Cathedra.Views.Internal.class)
+   // @JsonIgnore
     @ManyToOne
     @JoinColumn
     public Department getDepartment() {
@@ -47,6 +45,7 @@ public class Cathedra {
         this.department = department;
     }
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cathedra")
     public Set<Professor> getProfessors() {
         return professors;
@@ -54,12 +53,5 @@ public class Cathedra {
 
     public void setProfessors(Set<Professor> professors) {
         this.professors = professors;
-    }
-    public static final class Views {
-        // show only public data
-        public interface Public {}
-
-        // show public and internal data
-        public interface Internal extends Public {}
     }
 }

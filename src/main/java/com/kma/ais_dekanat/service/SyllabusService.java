@@ -30,7 +30,7 @@ public class SyllabusService {
     }
 
     @Transactional
-    public Syllabus getSyllabusById(Long id) {
+    public Syllabus getSyllabusById(Integer id) {
         return genericDAO.get(Syllabus.class, id);
     }
 

@@ -32,7 +32,7 @@ public class FinalTestService {
     }
 
     @Transactional
-    public FinalTest getFinalTestById(Long id) {
+    public FinalTest getFinalTestById(Integer id) {
         return genericDAO.get(FinalTest.class, id);
     }
     @Transactional
@@ -40,12 +40,20 @@ public class FinalTestService {
         Criteria crit = genericDAO.createCriteria(FinalTest.class)
                 .createAlias("group", "g")
                 .add(Restrictions.eq("g.course", id));
-
-
         List<FinalTest> finalTests = crit.list();
         return  finalTests;
     }
-
+    //Not work
+    @Transactional
+    public List<FinalTest> getFinalTestByProfesorId(Integer id){
+        Criteria crit = genericDAO.createCriteria(FinalTest.class)
+                .createAlias("subject", "subj")
+                .createAlias("subj.syllabuses", "sylab")
+                .createAlias("sylab.professor", "proff")
+                .add(Restrictions.eq("proff.professorId", id));
+        List<FinalTest> finalTests = crit.list();
+        return  finalTests;
+    }
     @Transactional
     public void saveOrUpdateFinalTest(FinalTest finalTest) {
         genericDAO.saveOrUpdate(finalTest);

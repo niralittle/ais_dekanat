@@ -1,5 +1,7 @@
 package com.kma.ais_dekanat.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 /**
@@ -41,6 +43,7 @@ public class Professor {
         this.academicDegree = academicDegree;
     }
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn
     public Cathedra getCathedra() {

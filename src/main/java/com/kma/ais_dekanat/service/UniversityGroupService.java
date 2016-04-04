@@ -32,7 +32,7 @@ public class UniversityGroupService {
     }
 
     @Transactional
-    public UniversityGroup getUniversityGroupById(Long id) {
+    public UniversityGroup getUniversityGroupById(Integer id) {
         return genericDAO.get(UniversityGroup.class, id);
     }
 

@@ -2,6 +2,7 @@ package com.kma.ais_dekanat.service;
 
 import com.kma.ais_dekanat.dao.GenericDAO;
 import com.kma.ais_dekanat.model.Department;
+import org.hibernate.Criteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +16,8 @@ public class DepartmentService {
 
     @Transactional
     public List<Department> getAllDepartment() {
-        return genericDAO.getAll(Department.class);
+        Criteria crit = genericDAO.createCriteria(Department.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+        return crit.list();
     }
 
     @Transactional
@@ -30,7 +32,7 @@ public class DepartmentService {
     }
 
     @Transactional
-    public Department getDepartmentById(Long id) {
+    public Department getDepartmentById(Integer id) {
         return genericDAO.get(Department.class, id);
     }
 
