@@ -13,5 +13,6 @@ public class Application {
 
     public static void main(String[] args) {
         ctx = SpringApplication.run(Application.class, args);
+
     }
 }

@@ -2,6 +2,8 @@ package com.kma.ais_dekanat.service;
 
 import com.kma.ais_dekanat.dao.GenericDAO;
 import com.kma.ais_dekanat.model.Cathedra;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,5 +41,11 @@ public class CathedraService {
         genericDAO.saveOrUpdate(cathedra);
     }
 
-   // public List<Cathedra>getAllCathedrasByDepartmentId(Long id){}
+    @Transactional
+    public List<Cathedra> getAllCathedrasByDepartmentId(int id) {
+        Criteria crit = genericDAO.createCriteria(Cathedra.class).add(Restrictions.eq("department.departmentId", id));
+        List<Cathedra> cathedras = crit.list();
+        System.out.println(cathedras.size());
+        return cathedras;
+    }
 }

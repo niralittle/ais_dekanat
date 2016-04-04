@@ -1,5 +1,7 @@
 package com.kma.ais_dekanat.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -29,6 +31,7 @@ public class UniversityGroup {
 
     @ManyToOne
     @JoinColumn
+    @JsonBackReference
     public Department getDepartment() {
         return department;
     }
