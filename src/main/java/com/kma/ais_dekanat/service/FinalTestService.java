@@ -2,6 +2,7 @@ package com.kma.ais_dekanat.service;
 
 import com.kma.ais_dekanat.dao.GenericDAO;
 import com.kma.ais_dekanat.model.FinalTest;
+import com.kma.ais_dekanat.model.FinalType;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,4 +59,9 @@ public class FinalTestService {
     public void saveOrUpdateFinalTest(FinalTest finalTest) {
         genericDAO.saveOrUpdate(finalTest);
     }
+
+//    @Transactional
+//    public List<FinalTest> getFinalTestsByProfessorIdAndFinalType(String professorId, FinalType finalType) {
+//        Criteria criteria = genericDAO.createCriteria()
+//    }
 }

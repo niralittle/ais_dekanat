@@ -20,14 +20,14 @@ public class ExamController {
     @Autowired
     private ExamService examService;
 
-    @RequestMapping(value = "/exam/", method = RequestMethod.GET)
-    public List<FinalTest> getCathedraByDepId() {
-        // CathedraService cathedraService = Application.ctx.getBean(CathedraService.class);
-        List<FinalTest> exams = examService.getAllExams();
-
-        if (exams != null) {
-            return exams;
-        }
-        return null;
+    @RequestMapping(value = "/getAllExams", method = RequestMethod.GET)
+    public List<FinalTest> getAllExams() {
+        return examService.getAllExams();
     }
+
+//    @RequestMapping(value = "/getExamsByProfessorId", method = RequestMethod.GET)
+//    public List<FinalTest> getExamsByProfessorId() {
+//        return examService.getExamsByProfessorId();
+//    }
+//
 }

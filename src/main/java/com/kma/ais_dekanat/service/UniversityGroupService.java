@@ -17,7 +17,9 @@ public class UniversityGroupService {
 
     @Transactional
     public List<UniversityGroup> getAllUniversityGroup() {
-        return genericDAO.getAll(UniversityGroup.class);
+        Criteria crit = genericDAO.createCriteria(UniversityGroup.class)
+                .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+        return crit.list();
     }
 
     @Transactional

@@ -15,7 +15,7 @@ public class DepartmentService {
     GenericDAO genericDAO;
 
     @Transactional
-    public List<Department> getAllDepartment() {
+    public List<Department> getAllDepartments() {
         Criteria crit = genericDAO.createCriteria(Department.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
         return crit.list();
     }

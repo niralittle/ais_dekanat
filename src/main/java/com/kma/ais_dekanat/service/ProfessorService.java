@@ -2,6 +2,7 @@ package com.kma.ais_dekanat.service;
 
 import com.kma.ais_dekanat.dao.GenericDAO;
 import com.kma.ais_dekanat.model.Professor;
+import org.hibernate.Criteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,8 +15,10 @@ public class ProfessorService {
     GenericDAO genericDAO;
 
     @Transactional
-    public List<Professor> getAllProfessor() {
-        return genericDAO.getAll(Professor.class);
+    public List<Professor> getAllProfessors() {
+        Criteria crit = genericDAO.createCriteria(Professor.class)
+                .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+        return crit.list();
     }
 
     @Transactional

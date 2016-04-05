@@ -23,16 +23,11 @@ public class CathedraController {
     @Autowired
     ProfessorService professorService;
 
-    @RequestMapping(value = "/cathedra/list", method = RequestMethod.GET)
-    public List<Cathedra> getCathedraByDepId(@RequestParam(value = "id") String id) {
-        // CathedraService cathedraService = Application.ctx.getBean(CathedraService.class);
-        List<Cathedra> cathedraList = cathedraService.getAllCathedrasByDepartmentId(Integer.parseInt(id));
-
-        if (cathedraList != null) {
-            return cathedraList;
-        }
-        return null;
+    @RequestMapping(value = "/getCathedrasByDepartment", method = RequestMethod.GET)
+    public List<Cathedra> getCathedraSByDepartmentId(@RequestParam(value = "id") String id) {
+        return cathedraService.getAllCathedrasByDepartmentId(Integer.parseInt(id));
     }
+
     @RequestMapping(value = "/cathedra/professor", method = RequestMethod.GET)
     public Professor getProfessorById(@RequestParam(value = "id") String id){
         System.out.println(id);
@@ -43,13 +38,9 @@ public class CathedraController {
         return null;
     }
 
-    @RequestMapping(value = "/cathedra/department", method = RequestMethod.GET)
+    @RequestMapping(value = "/getAllDepartments", method = RequestMethod.GET)
     public List<Department> getAllDepartment() {
-        List<Department> allDepartment = departmentService.getAllDepartment();
-        if (allDepartment != null) {
-            return allDepartment;
-        }
-        return null;
+        return departmentService.getAllDepartments();
     }
 
   /*  @RequestMapping(value = "/cathedra/remove/{id}",method = RequestMethod.POST)

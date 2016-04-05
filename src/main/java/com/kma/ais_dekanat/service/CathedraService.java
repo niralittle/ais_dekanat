@@ -17,7 +17,9 @@ public class CathedraService {
 
     @Transactional
     public List<Cathedra> getAllCathedras() {
-        return genericDAO.getAll(Cathedra.class);
+        Criteria crit = genericDAO.createCriteria(Cathedra.class)
+                .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+        return crit.list();
     }
 
     @Transactional

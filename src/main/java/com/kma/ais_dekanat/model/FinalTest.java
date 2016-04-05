@@ -1,9 +1,11 @@
 package com.kma.ais_dekanat.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import javafx.beans.property.IntegerProperty;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Set;
 
 /**
