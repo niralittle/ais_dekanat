@@ -1,0 +1,2 @@
+INSERT INTO syllabus (syllabus_id, class_type, group_group_id, professor_professor_id, subject_subject_id) VALUES (1, 0, 11, 11, 1);
+INSERT INTO syllabus (syllabus_id, class_type, group_group_id, professor_professor_id, subject_subject_id) VALUES (11, 0, 171, 551, 121);

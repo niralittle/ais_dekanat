@@ -1,5 +1,7 @@
 package com.kma.ais_dekanat.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Set;
@@ -66,6 +68,7 @@ public class FinalTest {
         this.room = room;
     }
 
+    @JsonIgnore
     @OneToMany(mappedBy = "finalTest")
     public Set<FinalReport> getFinalReports() {
         return finalReports;

@@ -1,5 +1,7 @@
 package com.kma.ais_dekanat.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -43,6 +45,7 @@ public class Subject {
         this.finalType = finalType;
     }
 
+    @JsonIgnore
     @OneToMany(mappedBy = "group")
     public Set<Syllabus> getSyllabuses() {
         return syllabuses;
@@ -52,6 +55,7 @@ public class Subject {
         this.syllabuses = syllabuses;
     }
 
+    @JsonIgnore
     @OneToMany(mappedBy = "subject")
     public Set<FinalTest> getFinalTests() {
         return finalTests;

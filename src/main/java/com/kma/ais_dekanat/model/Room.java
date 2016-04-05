@@ -1,5 +1,7 @@
 package com.kma.ais_dekanat.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -31,6 +33,7 @@ public class Room {
         this.name = name;
     }
 
+    @JsonIgnore
     @OneToMany(mappedBy = "room")
     public Set<FinalTest> getFinalTests() {
         return finalTests;

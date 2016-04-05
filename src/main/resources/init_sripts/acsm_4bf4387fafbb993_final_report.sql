@@ -1,0 +1,16 @@
+INSERT INTO final_report (grade, student_student_id, finalTest_final_id) VALUES (71, 3211, 2);
+INSERT INTO final_report (grade, student_student_id, finalTest_final_id) VALUES (71, 3221, 2);
+INSERT INTO final_report (grade, student_student_id, finalTest_final_id) VALUES (77, 3231, 2);
+INSERT INTO final_report (grade, student_student_id, finalTest_final_id) VALUES (89, 3241, 2);
+INSERT INTO final_report (grade, student_student_id, finalTest_final_id) VALUES (79, 3251, 2);
+INSERT INTO final_report (grade, student_student_id, finalTest_final_id) VALUES (99, 3261, 2);
+INSERT INTO final_report (grade, student_student_id, finalTest_final_id) VALUES (100, 3271, 2);
+INSERT INTO final_report (grade, student_student_id, finalTest_final_id) VALUES (71, 3281, 2);
+INSERT INTO final_report (grade, student_student_id, finalTest_final_id) VALUES (72, 3291, 2);
+INSERT INTO final_report (grade, student_student_id, finalTest_final_id) VALUES (73, 3301, 2);
+INSERT INTO final_report (grade, student_student_id, finalTest_final_id) VALUES (74, 3311, 2);
+INSERT INTO final_report (grade, student_student_id, finalTest_final_id) VALUES (71, 3341, 2);
+INSERT INTO final_report (grade, student_student_id, finalTest_final_id) VALUES (77, 3351, 2);
+INSERT INTO final_report (grade, student_student_id, finalTest_final_id) VALUES (89, 3361, 2);
+INSERT INTO final_report (grade, student_student_id, finalTest_final_id) VALUES (79, 3371, 2);
+INSERT INTO final_report (grade, student_student_id, finalTest_final_id) VALUES (99, 3381, 2);

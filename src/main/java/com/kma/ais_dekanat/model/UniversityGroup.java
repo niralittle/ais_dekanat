@@ -1,6 +1,7 @@
 package com.kma.ais_dekanat.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -56,6 +57,7 @@ public class UniversityGroup {
         this.name = name;
     }
 
+    @JsonIgnore
     @OneToMany(mappedBy = "group")
     public Set<Student> getStudents() {
         return students;
@@ -65,6 +67,7 @@ public class UniversityGroup {
         this.students = students;
     }
 
+    @JsonIgnore
     @OneToMany(mappedBy = "group")
     public Set<FinalTest> getFinals() {
         return finals;
@@ -74,6 +77,7 @@ public class UniversityGroup {
         this.finals = finals;
     }
 
+    @JsonIgnore
     @OneToMany(mappedBy = "group")
     public Set<Syllabus> getSyllabuses() {
         return syllabuses;
