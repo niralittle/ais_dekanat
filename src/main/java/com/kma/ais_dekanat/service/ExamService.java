@@ -1,6 +1,7 @@
 package com.kma.ais_dekanat.service;
 
 import com.kma.ais_dekanat.dao.GenericDAO;
+import com.kma.ais_dekanat.dao.GenericDAOHibernateImpl;
 import com.kma.ais_dekanat.model.FinalTest;
 import org.hibernate.Criteria;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,9 @@ public class ExamService {
         return crit.list();
     }
 
-//    public List<FinalTest> getExamsByProfessorId() {
-//        return genericDAO.;
-//    }
+    public List<FinalTest> getExamsByProfessorId(String id) {
+        return ((GenericDAOHibernateImpl) genericDAO).executeQuery("SELECT * from final_test where subject_subject_id " +
+                "in (SELECT subject_subject_id from syllabus where professor_professor_id = "
+                + id +");");
+    }
 }
