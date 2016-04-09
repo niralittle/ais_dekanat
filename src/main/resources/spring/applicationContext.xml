@@ -5,6 +5,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <context:component-scan base-package="com.kma.ais_dekanat.dao"/>
     <context:component-scan base-package="com.kma.ais_dekanat.service"/>
-    <context:property-placeholder location="spring/mysql_config.properties"/>
+    <context:property-placeholder location="spring/mysql_config_prod.properties"/>
     <import resource="hibernate_config.xml"/>
 </beans>

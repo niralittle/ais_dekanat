@@ -26,9 +26,12 @@ public class ExamService {
         return crit.list();
     }
 
+    /*
     public List<FinalTest> getExamsByProfessorId(String id) {
         return ((GenericDAOHibernateImpl) genericDAO).executeQuery("SELECT * from final_test where subject_subject_id " +
                 "in (SELECT subject_subject_id from syllabus where professor_professor_id = "
                 + id +");");
     }
+    */
+
 }
